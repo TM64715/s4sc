@@ -1,4 +1,6 @@
-const btn = document.getElementById("btn");
+document.addEventListener("DOMContentLoaded", main())
+
+function main(){const btn = document.getElementById("btn");
         const para = document.getElementById("para");
         btn.addEventListener("click", function () {
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -7,4 +9,4 @@ const btn = document.getElementById("btn");
                     para.style.visibility = "visible";
                 });
                 });
-        })
+        })}

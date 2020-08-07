@@ -2,6 +2,10 @@ window.addEventListener("DOMContentLoaded", main())
 function main() {
     function deleting() {
         var bod = document.querySelector(".vw-page-content")
+        var auth = document.querySelector("a.author-name");
+        auth.style.color = "black";
+        var time = document.querySelector("time");
+        time.style.color = "black";
         bod.style.width = "100%";
         bod.style.color = "black";
         bod.style.lineHeight = "26px";
@@ -23,7 +27,29 @@ function main() {
         var scrollTop = document.querySelector(".vw-scroll-to-top").remove();
         var readMorePop = document.querySelector(".vw-more-articles").remove();
         var disclaimer = document.querySelector(".vw-after-post-content").remove();
-        
+        var newStyle = document.createElement("style");
+        document.head.appendChild(newStyle);
+        newStyle.setAttribute("media", "print");
+        newStyle.innerHTML = 
+        ` 
+
+        .vw-page-title-section__title{
+            color: white !important;
+        }
+
+        .vw-page-content {
+            color: black !important;
+            width: 80% !important;
+            line-height: 26px !important;
+            font-size: 17px !important;
+            margin: 1in !important;
+        }
+
+        .author-name {
+            color: !black;
+        }
+        `
+
         
     }
     chrome.runtime.onMessage.addListener(
@@ -33,4 +59,6 @@ function main() {
                       "from the extension");
             deleting()
         });
+
+    deleting();
 }
