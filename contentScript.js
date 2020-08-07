@@ -42,7 +42,7 @@ function main() {
             width: 80% !important;
             line-height: 26px !important;
             font-size: 17px !important;
-            margin: 1in !important;
+            margin: auto 1in !important;
         }
 
         .author-name {
@@ -59,6 +59,4 @@ function main() {
                       "from the extension");
             deleting()
         });
-
-    deleting();
 }
