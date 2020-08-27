@@ -13,12 +13,14 @@ function main() {
         var topSocial = document.querySelector(".vw-top-bar").remove();
         var header = document.getElementsByTagName("header")[0].remove();
         var icon = document.querySelector(".vw-post-meta-icons").remove();
-        var allDots = document.querySelectorAll(".vw-post-meta-separator") //remove at index 1 and 2
+        var allDots = document.querySelectorAll(".vw-post-meta-separator"); //remove at index 1 and 2
         allDots[1].remove();
         allDots[2].remove();
         var views = document.querySelector(".vw-post-view-count").remove();
         var coments = document.querySelector(".vw-post-comment-count").remove();
+        try {
         var tags = document.querySelector(".vw-tag-links").remove();
+      } catch(err) {};
         var bottomNav = document.querySelector(".vw-post-navigation").remove();
         var abtAuthor = document.querySelector(".vw-about-author").remove();
         var otherArticle = document.getElementById("disqus_thread").remove();
@@ -30,8 +32,8 @@ function main() {
         var newStyle = document.createElement("style");
         document.head.appendChild(newStyle);
         newStyle.setAttribute("media", "print");
-        newStyle.innerHTML = 
-        ` 
+        newStyle.innerHTML =
+        `
 
         .vw-page-title-section__title{
             color: white !important;
@@ -50,7 +52,7 @@ function main() {
         }
         `
 
-        
+
     }
     chrome.runtime.onMessage.addListener(
         function(request, sender, sendResponse) {
